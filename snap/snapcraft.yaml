@@ -28,7 +28,10 @@ parts:
     build-packages:
       - libmnl-dev
       - build-essential
+  go:
+    source-tag: go1.10
   wireguard-go:
+    after: [go]
     plugin: go
     source: .
     go-importpath: git.zx2c4.com/wireguard-go
