@@ -29,9 +29,7 @@ parts:
       - libmnl-dev
       - build-essential
   wireguard-go:
-    plugin: make
-    source-type: git
-    source: https://git.zx2c4.com/wireguard-go
-    source-tag: 0.0.20181001
+    plugin: go
+    source: .
+    go-importpath: git.zx2c4.com/wireguard-go
     build-packages:
-      - golang
