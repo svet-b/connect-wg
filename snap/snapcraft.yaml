@@ -31,7 +31,7 @@ parts:
   wireguard-go:
     plugin: make
     source-type: git
-    source: https://git.zx2c4.com/ireguard-go
+    source: https://git.zx2c4.com/wireguard-go
     source-tag: 0.0.20181001
     build-packages:
       - golang
