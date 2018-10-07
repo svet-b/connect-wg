@@ -10,9 +10,9 @@ apps:
   wg:
     command: wg
     plugs: [network, home]
-  wg-quick:
-    command: wg-quick
-    plugs: [network, home]
+  # wg-quick:
+  #   command: wg-quick
+  #   plugs: [network, home]
   wireguard-go:
     command: wireguard-go
     plugs: [network, home]
@@ -28,6 +28,8 @@ parts:
     build-packages:
       - libmnl-dev
       - build-essential
+    stage-packages:
+      - libc6
   go:
     source-tag: go1.10
   wireguard-go:
