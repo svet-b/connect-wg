@@ -1,0 +1,29 @@
+name: ammp-connect-wg
+version: '0+git' 
+summary: AMMP Connect via WireGuard
+description: |
+  AMMP connect via WireGuard
+grade: stable
+confinement: strict
+
+apps:
+  wireguard:
+    command: wg
+    plugs: [network, home]
+
+parts:
+  wireguard:
+    source-type: git
+    source: https://git.zx2c4.com/WireGuard
+    override-build: |
+      cd src
+      make -j4
+      sudo make install
+    plugin: make
+    build-packages:
+      - gcc
+      - libmnl-dev
+      - libelf-dev
+      - pkg-config
+      - build-essential
+      - linux-headers-generic
