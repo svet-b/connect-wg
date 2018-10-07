@@ -32,4 +32,3 @@ parts:
     plugin: go
     source: .
     go-importpath: git.zx2c4.com/wireguard-go
-    build-packages:
