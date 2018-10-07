@@ -24,8 +24,7 @@ parts:
     source-type: git
     source: https://git.zx2c4.com/WireGuard
     source-tag: 0.0.20181007
-    source-subdir: src/
-    make-parameters: tools
+    source-subdir: src/tools/
     build-packages:
       - libmnl-dev
       - build-essential
