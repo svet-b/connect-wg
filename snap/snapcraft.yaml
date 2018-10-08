@@ -10,9 +10,9 @@ apps:
   wg:
     command: wg
     plugs: [network, home]
-  # wg-quick:
-  #   command: wg-quick
-  #   plugs: [network, home]
+  wg-quick:
+    command: wg-quick
+    plugs: [network, home]
   wireguard-go:
     command: wireguard-go
     plugs: [network, home]
@@ -30,6 +30,7 @@ parts:
       - build-essential
     stage-packages:
       - libc6
+    make-parameters: [WITH_WGQUICK=yes]
   go:
     source-tag: go1.10
   wireguard-go:
@@ -38,6 +39,3 @@ parts:
     source-type: git
     source: https://git.zx2c4.com/wireguard-go
     source-tag: 0.0.20181001
-    # plugin: go
-    # source: .
-    # go-importpath: git.zx2c4.com/wireguard-go
