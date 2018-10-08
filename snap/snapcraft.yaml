@@ -1,9 +1,10 @@
-name: ammp-connect-wg
-version: '0+git' 
-summary: AMMP Connect via WireGuard
+name: wireguard-ammp
+version: '0.0.20181007'
+summary: WireGuard VPN (userspace)
 description: |
-  AMMP connect via WireGuard
-grade: devel
+  WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
+  This snap packages wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries from the main repo (https://git.zx2c4.com/WireGuard/about/)
+grade: stable
 confinement: devmode
 
 apps:
@@ -28,8 +29,8 @@ parts:
     build-packages:
       - libmnl-dev
       - build-essential
-    stage-packages:
-      - libc6
+#    stage-packages:
+#      - libc6
     make-parameters: [WITH_WGQUICK=yes]
   go:
     source-tag: go1.10
