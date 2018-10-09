@@ -10,14 +10,15 @@ confinement: devmode
 apps:
   wg:
     command: wg
-    plugs: [network, home]
+    plugs: [network, network-control]
   wg-quick:
     command: wg-quick
-    plugs: [network, home]
+    plugs: [network, network-control]
   wireguard-go:
     command: wireguard-go
-    plugs: [network, home]
-
+    plugs: [network, network-control]
+    environment:
+      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
 
 parts:
   wireguard:
