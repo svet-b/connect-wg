@@ -14,6 +14,8 @@ apps:
   wg-quick:
     command: wg-quick
     plugs: [network, network-control]
+    environment:
+      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
   wireguard-go:
     command: wireguard-go
     plugs: [network, network-control]
@@ -41,3 +43,8 @@ parts:
     source-type: git
     source: https://git.zx2c4.com/wireguard-go
     source-tag: 0.0.20181001
+
+passthrough:
+  layout:
+    /var/run/wireguard:
+      type: tmpfs
