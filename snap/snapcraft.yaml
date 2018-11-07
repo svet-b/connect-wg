@@ -36,7 +36,7 @@ parts:
       - libc6
     make-parameters: [WITH_WGQUICK=yes]
   go:
-    source-tag: go1.10
+    source-tag: go1.11
   wireguard-go:
     after: [go]
     plugin: make
