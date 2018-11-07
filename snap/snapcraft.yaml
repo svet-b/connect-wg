@@ -49,3 +49,4 @@ parts:
 #    /var/wireguard:
 #      type: tmpfs
 #      bind: $SNAP_COMMON
+
