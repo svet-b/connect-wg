@@ -5,7 +5,7 @@ description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
   This snap packages wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries from the main repo (https://git.zx2c4.com/WireGuard/about/)
 grade: stable
-confinement: devmode
+confinement: strict
 
 apps:
   wg:
@@ -44,9 +44,9 @@ parts:
     source: https://git.zx2c4.com/wireguard-go
     source-tag: 0.0.20181018
 
-#passthrough:
-#  layout:
-#    /var/wireguard:
-#      type: tmpfs
+passthrough:
+  layout:
+    /run/wireguard:
+      type: tmpfs
 #      bind: $SNAP_COMMON
 
