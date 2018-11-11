@@ -16,18 +16,20 @@ apps:
     plugs: [network, network-control]
     environment:
       WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
+      WG_SOCKET_DIR: $SNAP_DATA
   wireguard-go:
     command: wireguard-go
     plugs: [network, network-control]
     environment:
       WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
+      WG_SOCKET_DIR: $SNAP_DATA
 
 parts:
   wireguard:
     plugin: make
     source-type: git
     source: https://github.com/svet-b/WireGuard.git
-#    source-tag: 0.0.20181018
+    source-branch: 0.0.20181018
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
@@ -42,7 +44,7 @@ parts:
     plugin: make
     source-type: git
     source: https://github.com/svet-b/wireguard-go.git
-#    source-tag: 0.0.20181018
+    source-branch: 0.0.20181018
 
 passthrough:
   layout:
