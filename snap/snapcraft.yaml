@@ -16,13 +16,13 @@ apps:
     plugs: [network, network-control]
     environment:
       WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
-      WG_SOCKET_DIR: $SNAP_DATA
+      WG_SOCKET_DIR: $SNAP_DATA/socket
   wireguard-go:
     command: wireguard-go
     plugs: [network, network-control]
     environment:
       WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
-      WG_SOCKET_DIR: $SNAP_DATA
+      WG_SOCKET_DIR: $SNAP_DATA/socket
 
 parts:
   wireguard:
