@@ -51,4 +51,4 @@ parts:
 passthrough:
   layout:
     /etc/wireguard:
-      bind: $SNAP_COMMON/etc/wireguard
+      bind: $SNAP_COMMON
