@@ -47,6 +47,5 @@ parts:
 passthrough:
   layout:
     /run/wireguard:
-      type: tmpfs
-#      bind: $SNAP_COMMON
+      bind: $SNAP_DATA/wireguard
 
