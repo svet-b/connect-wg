@@ -47,5 +47,6 @@ parts:
 passthrough:
   layout:
     /run/wireguard:
-      bind: $SNAP_DATA/wireguard
-
+      bind: $SNAP_DATA/run/wireguard
+    /etc/wireguard:
+      bind: $SNAP_COMMON/etc/wireguard
