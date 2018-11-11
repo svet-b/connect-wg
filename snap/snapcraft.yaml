@@ -26,8 +26,8 @@ parts:
   wireguard:
     plugin: make
     source-type: git
-    source: https://git.zx2c4.com/WireGuard
-    source-tag: 0.0.20181018
+    source: https://github.com/svet-b/WireGuard.git
+#    source-tag: 0.0.20181018
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
@@ -41,12 +41,10 @@ parts:
     after: [go]
     plugin: make
     source-type: git
-    source: https://git.zx2c4.com/wireguard-go
-    source-tag: 0.0.20181018
+    source: https://github.com/svet-b/wireguard-go.git
+#    source-tag: 0.0.20181018
 
 passthrough:
   layout:
-    /run/wireguard:
-      bind: $SNAP_DATA/run/wireguard
     /etc/wireguard:
       bind: $SNAP_COMMON/etc/wireguard
