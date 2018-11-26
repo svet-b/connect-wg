@@ -33,7 +33,7 @@ parts:
     plugin: make
     source-type: git
     source: https://git.zx2c4.com/WireGuard
-    source-tag: 0.0.20181018
+    source-tag: 0.0.20181119
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
