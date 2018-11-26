@@ -32,8 +32,8 @@ parts:
   wireguard:
     plugin: make
     source-type: git
-    source: https://github.com/svet-b/WireGuard.git
-    source-branch: v0.0.20181018
+    source: https://git.zx2c4.com/WireGuard
+    source-tag: 0.0.20181018
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
