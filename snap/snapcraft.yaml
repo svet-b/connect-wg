@@ -1,9 +1,11 @@
 name: wireguard-ammp
-version: '0.0.20181018'
+version: '0.0.20181119'
 summary: WireGuard VPN (userspace)
 description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
-  This snap packages wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries from the main repo (https://git.zx2c4.com/WireGuard/about/)
+  This snap packages the wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries built from the main repo (https://git.zx2c4.com/WireGuard/about/).
+  
+  With an overlay, /etc/wireguard is mapped to $SNAP_COMMON - so that's where WireGuard will look for configuration and key files.
 grade: stable
 confinement: strict
 
@@ -31,7 +33,7 @@ parts:
     plugin: make
     source-type: git
     source: https://github.com/svet-b/WireGuard.git
-    source-branch: 0.0.20181018
+    source-branch: v0.0.20181018
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
