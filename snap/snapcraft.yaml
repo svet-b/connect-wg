@@ -1,5 +1,5 @@
 name: wireguard-ammp
-version: '0.0.20181218'
+version: '0.0.20190227'
 summary: WireGuard VPN (userspace)
 description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
@@ -33,7 +33,7 @@ parts:
     plugin: make
     source-type: git
     source: https://git.zx2c4.com/WireGuard
-    source-tag: 0.0.20181218
+    source-tag: 0.0.20190227
     source-subdir: src/tools/
     build-packages:
       - libmnl-dev
