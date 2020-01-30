@@ -1,5 +1,5 @@
 name: wireguard-ammp
-version: '0.0.20181218'
+version: '0.0.20200121'
 summary: WireGuard VPN (userspace)
 description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
@@ -19,22 +19,22 @@ apps:
     command: wg-quick
     plugs: [network, network-control, network-bind]
     environment:
-      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
+#      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
   wireguard-go:
     command: wireguard-go
     plugs: [network, network-control, network-bind]
     environment:
-      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
+#      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
 
 parts:
   wireguard:
     plugin: make
     source-type: git
-    source: https://git.zx2c4.com/WireGuard
-    source-tag: 0.0.20181218
-    source-subdir: src/tools/
+    source: https://git.zx2c4.com/wireguard-tools
+    source-tag: v1.0.20200121
+    source-subdir: src/
     build-packages:
       - libmnl-dev
       - build-essential
@@ -42,13 +42,13 @@ parts:
       - libc6
     make-parameters: [WITH_WGQUICK=yes]
   go:
-    source-tag: go1.11
+    source-tag: go1.13.7
   wireguard-go:
     after: [go]
     plugin: make
     source-type: git
     source: https://github.com/svet-b/wireguard-go.git
-    source-branch: v0.0.20181222
+    source-branch: v0.0.20200121
 
 passthrough:
   layout:
