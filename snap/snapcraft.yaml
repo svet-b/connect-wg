@@ -6,8 +6,15 @@ description: |
   This snap packages the wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries built from the main repo (https://git.zx2c4.com/WireGuard/about/).
   
   With an overlay, /etc/wireguard is mapped to $SNAP_COMMON - so that's where WireGuard will look for configuration and key files.
+
 grade: stable
 confinement: strict
+
+base: core18
+
+architectures:
+  - build-on: amd64
+  - build-on: armhf
 
 apps:
   wg:
