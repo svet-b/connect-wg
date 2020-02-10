@@ -34,6 +34,14 @@ apps:
     environment:
 #      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
+  daemon:
+    daemon: oneshot
+    command: wg-quick up wg0
+    stop-command: wg-quick down wg0
+    plugs: [network, network-control, network-bind]
+    environment:
+      WG_SOCKET_DIR: $SNAP_DATA/socket
+
 
 parts:
   wireguard:
