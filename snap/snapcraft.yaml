@@ -45,17 +45,22 @@ parts:
     build-packages:
       - libmnl-dev
       - build-essential
+    override-pull: |
+      snapcraftctl pull
+      patch -p1 < $SNAPCRAFT_PROJECT_DIR/tools.patch
     stage-packages:
       - libc6
+      - libmnl0
     make-parameters: [WITH_WGQUICK=yes]
-  go:
-    source-tag: go1.13.7
   wireguard-go:
-    after: [go]
     plugin: make
     source-type: git
-    source: https://github.com/svet-b/wireguard-go.git
+    source: git://git.zx2c4.com/wireguard-go
     source-branch: v0.0.20200121
+    override-pull: |
+      snapcraftctl pull
+      patch -p1 < $SNAPCRAFT_PROJECT_DIR/svet.patch
+    build-snaps: [go]
 
 passthrough:
   layout:
