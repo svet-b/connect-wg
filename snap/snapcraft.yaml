@@ -51,6 +51,7 @@ parts:
     stage-packages:
       - libc6
       - libmnl0
+      - resolvconf
     make-parameters: [WITH_WGQUICK=yes]
   wireguard-go:
     plugin: make
