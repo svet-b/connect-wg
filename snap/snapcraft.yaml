@@ -19,18 +19,18 @@ architectures:
 apps:
   wg:
     command: wg
-    plugs: [network, network-control, network-bind]
+    plugs: [network, network-control, network-bind, firewall-control]
     environment:
       WG_SOCKET_DIR: $SNAP_DATA/socket
   wg-quick:
     command: wg-quick
-    plugs: [network, network-control, network-bind]
+    plugs: [network, network-control, network-bind, firewall-control]
     environment:
 #      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
   wireguard-go:
     command: wireguard-go
-    plugs: [network, network-control, network-bind]
+    plugs: [network, network-control, network-bind, firewall-control]
     environment:
 #      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
