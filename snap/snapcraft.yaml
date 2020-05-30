@@ -63,7 +63,6 @@ parts:
       patch -p1 < $SNAPCRAFT_PROJECT_DIR/svet.patch
     build-snaps: [go]
 
-passthrough:
-  layout:
-    /etc/wireguard:
-      bind: $SNAP_COMMON
+layout:
+  /etc/wireguard:
+    bind: $SNAP_COMMON
