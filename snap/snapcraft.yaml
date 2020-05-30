@@ -5,7 +5,14 @@ description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
   This snap packages the wireguard-go userspace executable (https://git.zx2c4.com/wireguard-go/about/) and the wg and wg-quick binaries built from the main repo (https://git.zx2c4.com/WireGuard/about/).
   
-  With an overlay, /etc/wireguard is mapped to $SNAP_COMMON - so that's where WireGuard will look for configuration and key files.
+  With an overlay, /etc/wireguard is mapped to $SNAP_COMMON (conventionally /var/snap/wireguard-ammp/common) - so this is where you should put configuration files such as wg0.conf.
+  Once the wg0.conf config file is in place and you've connected the network-control and firewall-control interaces, run
+  ```
+  sudo wireguard-ammp.wg-quick up wg0
+  ```
+  to bring up the interface.
+  
+  You may get an error `Unable to modify interface: Protocol not supported` due to a bug in some versions of snapd - see https://forum.snapcraft.io/t/raspberry-pi-3-ubuntu-core-18-network-control-interface-issue/14773/7 for a workaround.
 
 grade: stable
 confinement: strict
