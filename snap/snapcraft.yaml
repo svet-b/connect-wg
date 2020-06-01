@@ -1,5 +1,5 @@
 name: wireguard-ammp
-version: '0.0.20200121'
+version: '1.0.20200513'
 summary: WireGuard VPN (userspace)
 description: |
   WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN.
@@ -19,10 +19,6 @@ confinement: strict
 
 base: core18
 
-architectures:
-  - build-on: amd64
-  - build-on: armhf
-
 apps:
   wg:
     command: wg
@@ -33,21 +29,21 @@ apps:
     command: wg-quick
     plugs: [network, network-control, network-bind, firewall-control]
     environment:
-      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
+      # WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
   wireguard-go:
     command: wireguard-go
     plugs: [network, network-control, network-bind, firewall-control]
     environment:
-      WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
       WG_SOCKET_DIR: $SNAP_DATA/socket
+      # WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD: 1
 
 parts:
   wireguard:
     plugin: make
     source-type: git
     source: https://git.zx2c4.com/wireguard-tools
-    source-tag: v1.0.20200121
+    source-tag: v1.0.20200513
     source-subdir: src/
     build-packages:
       - libmnl-dev
@@ -64,7 +60,7 @@ parts:
     plugin: make
     source-type: git
     source: git://git.zx2c4.com/wireguard-go
-    source-branch: v0.0.20200121
+    source-branch: v0.0.20200320
     override-pull: |
       snapcraftctl pull
       patch -p1 < $SNAPCRAFT_PROJECT_DIR/svet.patch
